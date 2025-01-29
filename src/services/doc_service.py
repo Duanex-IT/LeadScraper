@@ -1,4 +1,4 @@
-import json
+import os
 
 from docx import Document
 from docx.shared import Inches
@@ -28,9 +28,12 @@ class DocService:
         for link in self.related_links:
             doc.add_paragraph(link)
 
-        doc.save(
-            f"{self.customer_info.get('customer_name', 'unknown')} - {self.company_info.get('name', 'unknown')}.docx"
-        )
+        filename = f"{self.customer_info.get('customer_name', 'unknown')} - {self.company_info.get('name', 'unknown')}.docx"
+        full_path = os.path.join("output", filename)
+
+        os.makedirs("output", exist_ok=True)
+
+        doc.save(full_path)
 
     def __add_table(self, doc, info):
         table = doc.add_table(rows=0, cols=2)
