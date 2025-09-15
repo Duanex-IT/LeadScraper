@@ -3,7 +3,7 @@
 1. Clone the project into your working directory:
    * HTTPS
    ```sh
-   git clone https://github.com/Duanex-IT/EventsBot.git
+   git clone https://github.com/Duanex-IT/LeadScraper.git
    ```
    * SSH
    ```sh
